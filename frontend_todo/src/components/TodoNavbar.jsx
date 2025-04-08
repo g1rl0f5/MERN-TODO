@@ -14,11 +14,11 @@ function TodoNavbar() {
     try {
       const token = localStorage.getItem("token");
 
-      await axios.post("http://localhost:5000/api/auth/logout", {}, {
+      `${import.meta.env.VITE_BACKEND_BASE_URL}/api/auth/logout`, {}, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      });
+      };
 
       localStorage.removeItem("token");
       toast.success("👋 Logged out successfully!");
